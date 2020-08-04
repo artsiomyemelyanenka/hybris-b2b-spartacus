@@ -1,0 +1,24 @@
+version: '3.4'
+services:
+  hybris:
+    build:
+      context: hybris-b2b
+      dockerfile: Dockerfile
+#      network: host
+    ports: 
+      - "9001:9001"
+      - "9002:9002"
+  spartacus:
+    build:
+      context: spartacus
+      dockerfile: Dockerfile
+#      network: host
+    environment:
+      - OCC_URL=https://localhost__:9002
+    ports: 
+      - "4200:4200"
+  debug:
+    build:
+      context: debug
+      dockerfile: Dockerfile
+      network: host
