@@ -11,10 +11,8 @@ RUN useradd --create-home spartacus
 USER spartacus
 WORKDIR /home/spartacus
 
-# ok
 RUN ng new mystore --routing false --style=scss
 WORKDIR /home/spartacus/mystore
-# ok
 RUN ng add @spartacus/schematics
 RUN yarn install
 COPY app.module.ts ./src/app/app.module.ts
@@ -24,6 +22,4 @@ COPY app.module.ts ./src/app/app.module.ts
 RUN yarn build
 
 EXPOSE 4200
-# RUN sed -i -E "s|baseUrl: 'https://localhost:9002',|baseUrl: '$OCC_URL',|" ./src/app/app.module.ts
-#CMD ["yarn",  "start",  "--ssl"]
 CMD sed -i -E "s|baseUrl: 'https://localhost:9002',|baseUrl: '$OCC_URL',|" ./src/app/app.module.ts && ng serve --host 0.0.0.0 --port 4200

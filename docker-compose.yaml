@@ -14,7 +14,7 @@ services:
       dockerfile: Dockerfile
 #      network: host
     environment:
-      - OCC_URL=https://localhost__:9002
+      - OCC_URL=https://localhost:9002
     ports: 
       - "4200:4200"
   debug:
