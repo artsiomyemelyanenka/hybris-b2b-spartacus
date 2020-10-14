@@ -17,11 +17,16 @@
     ```
         docker-compose up -d
     ```
+    If you want to start only SAP Commerce server (w/o Spartacus FE), use the following command:
+    ```
+        docker-compose up -d hybris
+    ```
+
 1. Wait for SAP Commerce to start (may take 10 min)
 1. Navigate to http://localhost:4200/ in your browser
     > In some cases you may encounter certificate issue during the first OCC calls. Then just open page https://localhost:9002/occ/v2/powertools-spa/cms/pages?fields=DEFAULT&pageType=ContentPage&pageLabelOrId=homepage&lang=en&curr=USD in your browser and confirm certificate exception)
 
-## Links
+## Local Links
 
 * Spartacus Storefront - http://localhost:4200/
 * Backoffice - https://localhost:9002/backoffice/ (use `admin`/`nimda` as user/password)
